@@ -4,7 +4,7 @@ Feature: Tables
     Given the simple table
     When I extract data from the table
     Then the values will be available for analysis
-"""
+
   Scenario: Sortable table - search box
     Given the search input field
     When I type rank, country or population
@@ -25,4 +25,3 @@ Feature: Tables
     When I click previous/next button
     Then the table should show only the row of interest
     And text below table should show how many of how many entries are shown
-"""
