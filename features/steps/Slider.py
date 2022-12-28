@@ -28,6 +28,5 @@ def step_impl(context, using):
 @then('the current value will be updated')
 def step_impl(context):
     current_value = context.browser.find_element(By.ID, "value").get_attribute('innerHTML')
-    time.sleep(4)
 
     assert current_value != "25"  # if it is 25 then the slider did not move

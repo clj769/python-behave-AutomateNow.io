@@ -5,11 +5,18 @@ Feature: Tables
     When I extract data from the table
     Then the values will be available for analysis
 
-  Scenario: Sortable table - search box
+  Scenario Outline: Sortable table - search box
     Given the search input field
-    When I type rank, country or population
+    When I type <search_term>
     Then the table should show only the row of interest
 
+    Examples:
+    |search_term|
+    |2          |
+    |India      |
+    |1,380      |
+
+"""
   Scenario: Sortable table - show 10 or 25 results
     Given the "show" dropdown list
     When I choose 10 or 25 from that dropdown menu

@@ -25,21 +25,22 @@ def step_impl(context):
 def step_impl(context):
     context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/tables/")
 
+    search_input = context.browser.find_element(By.CSS_SELECTOR, "input[type='search']")
 
-@when('I type rank, country or population')
-def step_impl(context):
-    search = context.browser.find_element(By.CSS_SELECTOR, "input[type='search']")
-    search.send_keys('Italy')
+
+@when('I type {search_term}')
+def step_impl(context, search_term):
+    context.search_input.send_keys(search_term)
+
+    time.sleep(2)
 
 
 @then('the table should show only the row of interest')
-def step_impl(context):
-    table = context.browser.find_element(By.CLASS_NAME, "row-hover")
-    rows = table.find_element(By.TAG_NAME, "tr")
-    value = rows.find_elements(By.TAG_NAME, "td")
-
-    time.sleep(3)
-    print(value.text)
-    assert value.text == "Italy", "No match found"
-
-    time.sleep(3)
+def step_impl(context, search_term):
+    # Find the table rows
+    rows = context.browser.find_element(By.XPATH, "//*[@id='tablepress-1']/tbody/tr")
+    # Check that only one row is displayed
+    # assert len(rows) == 1
+    # Check that the row text matches the search term
+    row_text = rows[0].text
+    assert search_term in row_text
