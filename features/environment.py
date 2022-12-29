@@ -9,10 +9,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
+from selenium.common.exceptions import *
+from selenium.webdriver.common import keys
 
 def before_all(context):
     print("Executing before all")
-
 
 
 def before_feature(context, feature):
@@ -26,6 +27,7 @@ def before_scenario(context, scenario):
     print("User data:", context.config.userdata)
     context.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     context.browser.maximize_window()
+
 
 def after_scenario(context, scenario):
     print("scenario status" + str(scenario.status))
