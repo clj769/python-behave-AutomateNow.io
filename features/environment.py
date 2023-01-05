@@ -1,5 +1,6 @@
 import logging
 import time
+import requests
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -11,6 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.common.exceptions import *
 from selenium.webdriver.common import keys
+
 
 def before_all(context):
     print("Executing before all")
