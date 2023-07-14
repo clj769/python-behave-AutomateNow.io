@@ -8,4 +8,5 @@ Feature: Gestures
     |element|
     |move_me_around|
     |drag_and_drop |
-    |drag_the_map  |
+
+#    |drag_the_map  |

@@ -6,7 +6,7 @@ from features.environment import *
 
 @given('the simple table')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/tables/")
+    context.browser.get("https://practice-automation.com/tables/")
 
 
 @when('I extract data from the table')
@@ -23,7 +23,7 @@ def step_impl(context):
 
 @given('the search input field')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/tables/")
+    context.browser.get("https://practice-automation.com/tables/")
 
     search_input = context.browser.find_element(By.CSS_SELECTOR, "input[type='search']")
 

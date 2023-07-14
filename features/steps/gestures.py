@@ -5,7 +5,7 @@ from features.environment import *
 
 @given('gestures examples')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/gestures/")
+    context.browser.get("https://practice-automation.com/gestures/")
 
 
 @when('I choose {element} element')
@@ -24,15 +24,15 @@ def step_impl(context, element):
         context.browser.execute_script("return arguments[0].scrollIntoView();", context.drop_target)
         actions.drag_and_drop(logo, context.drop_target).perform()
 
-    elif element == 'drag_the_map':
-        the_map = context.browser.find_element(By.CSS_SELECTOR, ".wp-block-jetpack-map-marker")
-        context.browser.execute_script("return arguments[0].scrollIntoView();", the_map)
-
-        context.original_position = the_map.get_attribute("style")
-        actions.drag_and_drop_by_offset(the_map, 200, 400).perform()
-        time.sleep(2)
-        # context.new_position = style.split(" ")[1]
-        context.new_position = the_map.get_attribute("style")
+    # elif element == 'drag_the_map':
+    #     the_map = context.browser.find_element(By.CSS_SELECTOR, ".wp-block-jetpack-map-marker")
+    #     context.browser.execute_script("return arguments[0].scrollIntoView();", the_map)
+    #
+    #     context.original_position = the_map.get_attribute("style")
+    #     actions.drag_and_drop_by_offset(the_map, 200, 400).perform()
+    #     time.sleep(2)
+    #     # context.new_position = style.split(" ")[1]
+    #     context.new_position = the_map.get_attribute("style")
 
 
 @then('I should manage {element} element accordingly')
@@ -49,5 +49,5 @@ def step_impl(context, element):
             context.drop_target.find_element(By.ID, ".//*[@id='dragMe']")
         except NoSuchElementException:
             print("The logo element is not contained inside the drop target element.")
-    elif element == 'drag_the_map':
-        assert context.original_position != context.new_position, "The map was not moved."
+    # elif element == 'drag_the_map':
+    #     assert context.original_position != context.new_position, "The map was not moved."

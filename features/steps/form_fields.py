@@ -5,7 +5,7 @@ from features.environment import *
 
 @given('the form')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/form-fields/")
+    context.browser.get("https://practice-automation.com/form-fields/")
 
 
 @when('I fill the form and click submit')

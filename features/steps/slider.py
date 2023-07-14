@@ -6,7 +6,7 @@ from features.environment import *
 
 @given('the slider')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/slider/")
+    context.browser.get("https://practice-automation.com/slider/")
 
 
 @when('I adjust it by {using} drag-and-drop or clicking a given-area operation')

@@ -6,7 +6,7 @@ from features.environment import *
 
 @given('the calendar')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/calendars/")
+    context.browser.get("https://practice-automation.com/calendars/")
 
 
 @when('I select the date')

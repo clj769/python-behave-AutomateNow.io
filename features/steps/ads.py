@@ -5,7 +5,7 @@ from features.environment import *
 
 @given('the ad')
 def step_impl(context):
-    context.browser.get("https://automatenow.io/sandbox-automation-testing-practice-website/ads/")
+    context.browser.get("https://practice-automation.com/ads/")
 
 
 @when('I will wait until it pops up')
